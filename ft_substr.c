@@ -1,31 +1,33 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nileempo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/01 10:50:55 by nileempo          #+#    #+#             */
+/*   Updated: 2022/12/01 14:08:18 by nileempo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+//#include <stdio.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char 	*str;
+	char	*str;
 	size_t	i;
-	
-	i = 0;	
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (NULL);
-	str = malloc(sizeof(char) * len + 1);
+	size_t	size;
+
+	i = 0;
+	if (!s || start > ft_strlen(s))
+		return (ft_calloc(1, 1));
+	size = ft_strlen(s + start);
+	if (size < len)
+		len = size;
+	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
-		return (NULL);	
+		return (NULL);
 	if (start < ft_strlen(s))
 	{
 		while (s[start] && i < len)
@@ -33,18 +35,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 			str[i] = s[start + i];
 			i++;
 		}
-	}	
-	str[i] = 'Z';
+	}
+	str[i] = '\0';
 	return (str);
 }
-
+/*
 int main()
 {
-	char	*s = "test";
-	int	start = 10;
-	size_t	len = 2;
+	char	*s = "abcdefghi";
+	int	start = 8;
+	size_t	len = 8;
 
 	printf("%s", ft_substr(s, start, len));
 	return (0);
-}
-
+}*/

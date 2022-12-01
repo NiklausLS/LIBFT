@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:21:55 by nileempo          #+#    #+#             */
-/*   Updated: 2022/12/01 14:42:31 by nileempo         ###   ########.fr       */
+/*   Created: 2022/11/09 09:52:05 by nileempo          #+#    #+#             */
+/*   Updated: 2022/11/09 10:46:43 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
+//#include <stdio.h>
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
-	int	start;
-//	int	end;
+	char	*d;
+	char	*s;
+	size_t	i;
 
 	i = 0;
-	start = 0;
-//	end = ft_strlen(s1);
-	while (s1 && ft_strchr(set, s1[start]))
-		s1++;
-
-	return ((char *)s1);
+	d = (char *)dest;
+	s = (char *)src;
+	if (!dest && !src)
+		return (0);
+	while (n > i)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
 }
 
-int main()
+/*int	main ()
 {
-	char *s1 = "_\n\ttest de la fonction_\n\t";
-	char *s2 = "123test de la fonction123";
-
-	char *trim1 = "_\n\t";
-	char *trim2 = "123";
-
-	printf("s1 : %s\n", ft_strtrim(s1, trim1));
-	printf("s2 : %s\n", ft_strtrim(s2, trim2));
+	char src[] = "test de la fonction";
+	char dest[] = "123456789";
+	printf("%s", ft_memcpy(dest, src, 5));
+	printf("\n%s", memcpy(dest, src, 5));
 	return (0);
-}
+}*/

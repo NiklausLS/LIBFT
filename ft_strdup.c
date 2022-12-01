@@ -1,42 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:21:55 by nileempo          #+#    #+#             */
-/*   Updated: 2022/12/01 14:42:31 by nileempo         ###   ########.fr       */
+/*   Created: 2022/11/21 14:36:06 by nileempo          #+#    #+#             */
+/*   Updated: 2022/11/21 15:01:14 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strdup(const char *s)
 {
-	int	i;
-	int	start;
-//	int	end;
+	char	*str;
+	int		i;
 
+	str = (char *) malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (!str)
+		return (0);
 	i = 0;
-	start = 0;
-//	end = ft_strlen(s1);
-	while (s1 && ft_strchr(set, s1[start]))
-		s1++;
-
-	return ((char *)s1);
+	while (s[i])
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
-
+/*
 int main()
 {
-	char *s1 = "_\n\ttest de la fonction_\n\t";
-	char *s2 = "123test de la fonction123";
+	char *s = "test";
+	char *s2 = "test";
+	char *t = "";
+	char *t2 = "";
+	printf("before : %s\n", t);
+	t = strdup(s);
+	printf("after : %s \n", t);
 
-	char *trim1 = "_\n\t";
-	char *trim2 = "123";
-
-	printf("s1 : %s\n", ft_strtrim(s1, trim1));
-	printf("s2 : %s\n", ft_strtrim(s2, trim2));
+	printf("before : %s\n", t2);
+	t2 = ft_strdup(s2);
+	printf("after : %s", t2);
 	return (0);
-}
+}*/

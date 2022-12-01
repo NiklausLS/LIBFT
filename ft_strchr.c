@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:21:55 by nileempo          #+#    #+#             */
-/*   Updated: 2022/12/01 14:42:31 by nileempo         ###   ########.fr       */
+/*   Created: 2022/11/14 13:52:49 by nileempo          #+#    #+#             */
+/*   Updated: 2022/12/01 13:47:33 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-	int	start;
-//	int	end;
+	int		i;
+	char	*ptr;
 
 	i = 0;
-	start = 0;
-//	end = ft_strlen(s1);
-	while (s1 && ft_strchr(set, s1[start]))
-		s1++;
-
-	return ((char *)s1);
-}
-
-int main()
-{
-	char *s1 = "_\n\ttest de la fonction_\n\t";
-	char *s2 = "123test de la fonction123";
-
-	char *trim1 = "_\n\t";
-	char *trim2 = "123";
-
-	printf("s1 : %s\n", ft_strtrim(s1, trim1));
-	printf("s2 : %s\n", ft_strtrim(s2, trim2));
+	ptr = (char *)s;
+	if (c == '\0')
+		return (ptr + ft_strlen(s));
+	while (s[i])
+	{
+		if (s[i] == (unsigned char)c)
+			return (ptr + i);
+		i++;
+	}
 	return (0);
 }
+/*
+int main()
+{
+	char *s = "abcdefghijklmnopqrstuvwxyz";
+	int c = 't';
+
+	printf("Vraie fonction : %s\n", strchr(s, c));
+	printf("Ma fonction : %s\n", ft_strchr(s, c));
+	return (0);
+}*/
