@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nileempo <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 11:18:08 by nileempo          #+#    #+#              #
-#    Updated: 2022/12/01 10:53:05 by nileempo         ###   ########.fr        #
+#    Updated: 2024/07/10 23:11:12 by nileempo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	  ft_toupper.c ft_tolower.c \
 	  ft_atoi.c ft_itoa.c \
 	  ft_strncmp.c \
-	  ft_strlcpy.c \
+	  ft_strcpy.c ft_strlcpy.c \
 	  ft_strlcat.c \
 	  ft_strdup.c \
 	  ft_strchr.c ft_strrchr.c ft_strnstr.c ft_substr.c \
